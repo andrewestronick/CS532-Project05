@@ -5,8 +5,10 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     record.cpp \
-    bucket.cpp
+    bucket.cpp \
+    hash.cpp
 
 HEADERS += \
     record.h \
-    bucket.h
+    bucket.h \
+    hash.h
