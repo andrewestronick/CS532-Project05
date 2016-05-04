@@ -14,6 +14,13 @@ Record::Record(int id, std::string name)
             this->name[i] = ' ';
 }
 
+
+int Record::getID()
+{
+    return id;
+}
+
+
 std::string Record::getName()
 {
     std::string name(this->name, 20);
