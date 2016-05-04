@@ -18,6 +18,7 @@ HashFile::HashFile(int n, int r, const std::string &fileName)
 
 HashFile::~HashFile()
 {
+    file.close();
     delete bucketMap;
 }
 

@@ -22,6 +22,9 @@ private:
     std::fstream file;
     int *bucketMap = nullptr;
 
+    bucket getBucket(int n);
+    void putBucket(const bucket &b, int n);
+
 
 };
 
