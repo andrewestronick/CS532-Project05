@@ -3,6 +3,7 @@
 
 #include <string>
 #include <fstream>
+#include "bucket.h"
 #include "record.h"
 
 class HashFile
@@ -22,8 +23,8 @@ private:
     std::fstream file;
     int *bucketMap = nullptr;
 
-    bucket getBucket(int n);
-    void putBucket(const bucket &b, int n);
+    Bucket getBucket(int n);
+    void putBucket(const Bucket &b, int bucketNumber);
 
 
 };

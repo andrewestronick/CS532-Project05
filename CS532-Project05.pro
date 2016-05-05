@@ -4,11 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    record.cpp \
     bucket.cpp \
     hashfile.cpp
 
 HEADERS += \
-    record.h \
     bucket.h \
-    hashfile.h
+    hashfile.h \
+    record.h

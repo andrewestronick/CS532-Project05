@@ -8,7 +8,7 @@ HashFile::HashFile(int n, int r, const std::string &fileName)
         exit(EXIT_FAILURE);
 
     this->n = n;
-    this->r = r;
+    this->r = r; 
 
     bucketMap = new int[n];
         for(int i = 0; i < n; ++i)
@@ -32,4 +32,16 @@ int HashFile::store(Record data_rec)
 Record HashFile::retrieve(int id)
 {
 
+}
+
+Bucket HashFile::getBucket(int n)
+{
+
+}
+
+void HashFile::putBucket(const Bucket &b, int bucketNumber)
+{
+    int size = b.size();
+    file.seekp(bucketNumber * size);
+    file.write(b.stream(), size);
 }
