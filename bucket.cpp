@@ -2,25 +2,59 @@
 
 Bucket::Bucket(int r)
 {
-    this->r =r;
-    records = new Record[this->r];
+    size = r;
+    recordArray = new Record[size];
 }
 
 
 Bucket::~Bucket()
 {
-    delete records;
+    delete recordArray;
 }
 
 
-char *Bucket::stream() const
+bool Bucket::put(Record &r)
 {
-    return (char*) &records;
+    if(recordCount == size)
+        return false;
+
+    recordArray[recordCount].id = r.id;
+    ::nameCopy(recordArray[recordCount].name, r.name, 20);
+
+    ++recordCount;
+
+    return true;
 }
 
 
-int Bucket::size() const
+Record Bucket::get(int index)
 {
-    return sizeof(Record[r]);
+    Record r;
+
+    r.id = recordArray[index].id;
+    ::nameCopy(r.name, recordArray[index].name, 20);
+
+    return r;
+
+}
+
+
+void Bucket::load(char *stream)
+{
+    char *data = (char*) recordArray;
+    for(int i = 0; i < sizeOf(); ++i)
+        data[i] = stream[i];
+}
+
+
+char *Bucket::save()
+{
+    return (char*) recordArray;
+}
+
+
+int Bucket::sizeOf() const
+{
+        return sizeof(Record[size]);
 }
 

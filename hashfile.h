@@ -24,7 +24,7 @@ private:
     int *bucketMap = nullptr;
 
     Bucket getBucket(int n);
-    void putBucket(const Bucket &b, int bucketNumber);
+    void putBucket(Bucket &b, int bucketNumber);
 
 
 };

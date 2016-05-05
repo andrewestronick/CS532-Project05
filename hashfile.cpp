@@ -39,9 +39,10 @@ Bucket HashFile::getBucket(int n)
 
 }
 
-void HashFile::putBucket(const Bucket &b, int bucketNumber)
+void HashFile::putBucket(Bucket &b, int bucketNumber)
 {
-    int size = b.size();
+    int size = b.sizeOf();
     file.seekp(bucketNumber * size);
-    file.write(b.stream(), size);
+
+    file.write(b.save(), size);
 }

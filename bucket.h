@@ -9,13 +9,18 @@ public:
 
     Bucket(int r);
     ~Bucket();
-    char *stream(void) const;
-    int size(void) const;
+    bool put(Record &r);
+    Record get(int index);
+    void load(char *stream);
+    char* save(void);
+    int sizeOf(void) const;
 
 private:
 
-    int r;
-    Record *records;
+    int size;
+    int recordCount = 0;
+    Record *recordArray;
+
 };
 
 #endif // BUCKET_H
