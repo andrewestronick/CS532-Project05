@@ -7,11 +7,12 @@
 int main(int argc, char *argv[])
 {
     const std::string fileName = "C:\\temp\\purple.hash";
+    HashFile h(fileName,7, 3);
 
-    Bucket b(3);
-    Record r1(1, "Andrew");
+    h.store(Record(1, "Andrew"));
+    h.store(Record(2, "Lori"));
 
-    b.record(Record::Record());
+    std::cout << h.retrive(1).getName();
 
     return 0;
 }

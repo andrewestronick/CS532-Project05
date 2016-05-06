@@ -8,15 +8,15 @@ public:
 
     Record();
     Record(int id, std::string name);
-    void id(int id);
-    int id(void);
-    void name(std::string name);
-    std::string name(void);
+    void setID(int id);
+    int getID(void);
+    void setName(std::string name);
+    std::string getName(void);
 
 private:
 
-    int _id=0;
-    char _name[20];
+    int id = 0;
+    char name[20];
 
 };
 

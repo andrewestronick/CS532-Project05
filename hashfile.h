@@ -10,20 +10,21 @@ class HashFile
 {
 public:
 
-    HashFile();
+    HashFile(std::string fileName, int n, int bucketSize);
     ~HashFile();
+    int linearProbe(int i, int key, int step);
+    int store(Record record);
+    Record retrive(int id);
 
 
 private:
 
     int n;
-    int r;
+    int bucketSize;
     std::string fileName;
     std::fstream file;
     int *bucketMap = nullptr;
 
-    Bucket getBucket(int n);
-    void putBucket(Bucket &b, int bucketNumber);
 
 
 };

@@ -2,35 +2,40 @@
 
 Record::Record()
 {
-
 }
 
 
-Record::Record(int id, std::string name) : _id(id)
+Record::Record(int id, std::string name)
 {
-    Record::name(name);
+    setID(id);
+    setName(name);
 }
 
 
-void Record::id(int id)
+void Record::setID(int id)
 {
-    this->_id = id;
+    this->id = id;
 }
 
 
-int Record::id()
+int Record::getID(void)
 {
-   return _id;
+   return id;
 }
 
 
-void Record::name(std::string name)
+void Record::setName(std::string name)
 {
     for(unsigned i = 0; i < 20; ++i)
-        _name[i] = (i < name.size()) ? name[i] : ' ';
+        this->name[i] = (i < name.size()) ? name[i] : ' ';
 }
 
-std::string Record::name()
+std::string Record::getName()
 {
-    return _name;
+    std::string s;
+
+    for(unsigned i = 0; i < 20; ++i)
+        s += name[i];
+
+    return s;
 }
