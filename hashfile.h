@@ -10,10 +10,9 @@ class HashFile
 {
 public:
 
-    HashFile(int n, int r, const std::string &fileName);
+    HashFile();
     ~HashFile();
-    int store (Record data_rec);
-    Record retrieve (int id);
+
 
 private:
 

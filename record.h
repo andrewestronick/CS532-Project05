@@ -1,19 +1,23 @@
 #ifndef RECORD_H
 #define RECORD_H
+#include <string>
 
-struct Record
+class Record
 {
-    int id;
-    char name[20];
+public:
+
+    Record();
+    Record(int id, std::string name);
+    void id(int id);
+    int id(void);
+    void name(std::string name);
+    std::string name(void);
+
+private:
+
+    int _id=0;
+    char _name[20];
+
 };
-
-static void nameCopy(char *destinationName, char *sourceName, int length )
-{
-    for(int i = 0; i < 20; ++i)
-        destinationName[i] = ' ';
-
-    for(int i = 0; i < (length <= 20 ? length : 20); ++i)
-        destinationName[i] = sourceName[i];
-}
 
 #endif // RECORD_H

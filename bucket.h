@@ -7,19 +7,16 @@ class Bucket
 {
 public:
 
-    Bucket(int r);
+    Bucket(int size);
     ~Bucket();
-    bool put(Record &r);
-    Record get(int index);
-    void load(char *stream);
-    char* save(void);
-    int sizeOf(void) const;
+    void record(Record &record);
+    Record record(int index);
 
 private:
 
-    int size;
-    int recordCount = 0;
-    Record *recordArray;
+    int _size;
+    int _recordCount = 0;
+    Record *_recordArray;
 
 };
 

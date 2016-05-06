@@ -1,60 +1,29 @@
 #include "bucket.h"
 
-Bucket::Bucket(int r)
+Bucket::Bucket(int size) : _size(size)
 {
-    size = r;
-    recordArray = new Record[size];
+    _recordArray = new Record[_size];
 }
 
 
 Bucket::~Bucket()
 {
-    delete recordArray;
+    delete _recordArray;
 }
 
 
-bool Bucket::put(Record &r)
+void Bucket::record(Record &record)
 {
-    if(recordCount == size)
-        return false;
+    if(_recordCount == _size)
+        return;
 
-    recordArray[recordCount].id = r.id;
-    ::nameCopy(recordArray[recordCount].name, r.name, 20);
-
-    ++recordCount;
-
-    return true;
+    _recordArray[_recordCount].id(record.id());
+    _recordArray[_recordCount].name(record.name());
+    ++_recordCount;
 }
 
 
-Record Bucket::get(int index)
+Record Bucket::record(int index)
 {
-    Record r;
-
-    r.id = recordArray[index].id;
-    ::nameCopy(r.name, recordArray[index].name, 20);
-
-    return r;
-
+    return _recordArray[index];
 }
-
-
-void Bucket::load(char *stream)
-{
-    char *data = (char*) recordArray;
-    for(int i = 0; i < sizeOf(); ++i)
-        data[i] = stream[i];
-}
-
-
-char *Bucket::save()
-{
-    return (char*) recordArray;
-}
-
-
-int Bucket::sizeOf() const
-{
-        return sizeof(Record[size]);
-}
-
