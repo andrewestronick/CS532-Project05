@@ -1,6 +1,7 @@
 #ifndef HASHFILE_H
 #define HASHFILE_H
 
+#include <iostream>
 #include <string>
 #include <fstream>
 #include "bucket.h"
@@ -12,10 +13,10 @@ public:
 
     HashFile(std::string fileName, int n, int bucketSize);
     ~HashFile();
+    void initMap(void);
     int linearProbe(int i, int key, int step);
     int store(Record record);
     Record retrive(int id);
-
 
 private:
 

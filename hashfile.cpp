@@ -11,8 +11,17 @@ HashFile::HashFile(std::string fileName, int n, int bucketSize)
     this->bucketSize = bucketSize;
 
     bucketMap = new int[n];
-        for(int i = 0; i < n; ++i)
-            bucketMap[i] = 0;
+
+    initMap();
+
+    Bucket b(bucketSize);
+    for(int i = 0; i < bucketSize; ++i)
+        b.pushRecord(Record());
+
+    for(int i = 0; i < n; ++i)
+        b.saveBucket(file, i);
+
+    initMap();
 }
 
 
@@ -21,6 +30,13 @@ HashFile::~HashFile()
     file.close();
     delete bucketMap;
 }
+
+void HashFile::initMap()
+{
+    for(int i = 0; i < n; ++i)
+        bucketMap[i] = 0;
+}
+
 
 int HashFile::linearProbe(int i, int key, int step)
 {
@@ -64,12 +80,13 @@ Record HashFile::retrive(int id)
     while(true)
     {
         Bucket b(bucketSize);
-        b.loadBucket(file, bucketNumber);
+        b.loadBucket(file, bucketNumber, bucketMap[bucketNumber]);
         if(b.getRecord(id).getID() == id)
             return b.getRecord(id);
 
         if(bucketMap[bucketNumber] < bucketSize)
             return Record();
+
 
         ++index;
         bucketNumber = linearProbe(index, id, 1);

@@ -1,6 +1,7 @@
 #ifndef RECORD_H
 #define RECORD_H
 #include <string>
+#include <iostream>
 
 class Record
 {
@@ -12,6 +13,7 @@ public:
     int getID(void);
     void setName(std::string name);
     std::string getName(void);
+    void print(void);
 
 private:
 

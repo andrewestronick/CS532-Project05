@@ -2,6 +2,8 @@
 
 Record::Record()
 {
+    for(int i = 0; i < 20; ++i)
+        name[i] = ' ';
 }
 
 
@@ -38,4 +40,12 @@ std::string Record::getName()
         s += name[i];
 
     return s;
+}
+
+void Record::print()
+{
+    std::cout << "ID:" << id << " Name:";
+    for(int i = 0; i < 20; ++i)
+        std::cout << name[i];
+    std::cout << std::endl;
 }

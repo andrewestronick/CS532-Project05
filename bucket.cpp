@@ -50,6 +50,16 @@ void Bucket::loadBucket(std::fstream &file, int bucketNumber)
 {
     file.seekg(bucketSize() * bucketNumber);
     file.read((char *) recordArray, bucketSize());
+    for(int i = 0; i < size; ++i)
+        recordCount += (recordArray[i].getID() != 0) ? 1 : 0;
+}
+
+
+void Bucket::loadBucket(std::fstream &file, int bucketNumber, int recordCount)
+{
+    file.seekg(bucketSize() * bucketNumber);
+    file.read((char *) recordArray, bucketSize());
+    this->recordCount = recordCount;
 }
 
 
@@ -57,6 +67,13 @@ void Bucket::saveBucket(std::fstream &file, int bucketNumber)
 {
     file.seekp(bucketSize() * bucketNumber);
     file.write((char *) recordArray, bucketSize());
+}
+
+void Bucket::print()
+{
+    std::cout << "Number of records:" << recordCount << std::endl;
+    for(int i = 0; i < recordCount; ++i)
+        recordArray[i].print();
 }
 
 

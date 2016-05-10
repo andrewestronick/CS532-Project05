@@ -1,6 +1,7 @@
 #ifndef BUCKET_H
 #define BUCKET_H
 
+#include <iostream>
 #include <fstream>
 #include "record.h"
 
@@ -15,7 +16,9 @@ public:
     Record getRecord(int id);
     bool isFull(void);
     void loadBucket(std::fstream &file, int bucketNumber);
+    void loadBucket(std::fstream &file, int bucketNumber, int recordCount);
     void saveBucket(std::fstream &file, int bucketNumber);
+    void print(void);
 
 private:
 
