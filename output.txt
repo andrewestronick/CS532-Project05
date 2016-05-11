@@ -1,0 +1,52 @@
+Enter ID:57
+Enter name:Jonathan
+Bucket:1  ID:57  Name:Jonathan
+Enter ID:94
+Enter name:Gary
+Bucket:3  ID:94  Name:Gary
+Enter ID:43
+Enter name:Sylvia
+Bucket:1  ID:43  Name:Sylvia
+Enter ID:67
+Enter name:Sharon
+Bucket:4  ID:67  Name:Sharon
+Enter ID:99
+Enter name:William
+Bucket:2  ID:99  Name:William
+Enter ID:44
+Enter name:Irving
+Bucket:2  ID:44  Name:Irving
+Enter ID:16
+Enter name:Samantha
+Bucket:3  ID:16  Name:Samantha
+Enter ID:21
+Enter name:Micheal
+Bucket:0  ID:21  Name:Micheal
+Enter ID:51
+Enter name:Pablo
+Bucket:4  ID:51  Name:Pablo
+Enter ID:75
+Enter name:Beth
+Bucket:5  ID:75  Name:Beth
+Enter ID:78
+Enter name:Erine
+Bucket:5  ID:78  Name:Erine
+Enter ID:0
+Enter ID:44
+ID:44 Name:Irving
+Enter ID:16
+ID:16 Name:Samantha
+Enter ID:67
+ID:67 Name:Sharon
+Enter ID:43
+ID:43 Name:Sylvia
+Enter ID:37
+Not Found
+Enter ID:21
+ID:21 Name:Micheal
+Enter ID:51
+ID:51 Name:Pablo
+Enter ID:78
+ID:78 Name:Erine
+Enter ID:0
+Press <RETURN> to close this window...

@@ -12,3 +12,6 @@ HEADERS += \
     bucket.h \
     hashfile.h \
     record.h
+
+DISTFILES += \
+    output.txt
